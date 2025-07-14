@@ -60,7 +60,7 @@ export default function RegistrationForm() {
     return (
       <section className="py-20 bg-gradient-to-br from-accent/10 to-primary/10">
         <div className="container mx-auto px-6">
-          <Card className="max-w-2xl mx-auto border-2 border-accent/20 bg-white shadow-elegant">
+          <Card className="max-w-2xl mx-auto border-0 shadow-card">
             <CardContent className="p-12 text-center">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="h-8 w-8 text-accent" />

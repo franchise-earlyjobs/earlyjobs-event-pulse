@@ -37,19 +37,24 @@ All colors MUST be HSL.
     --ring: 214 100% 35%;
 
     
-    /* Apple-inspired Design System */
+    /* Enhanced Brand Colors */
     --brand-blue: 214 100% 35%;
     --brand-orange: 32 95% 55%;
     --brand-grey: 215 25% 27%;
     
-    /* Clean gradients */
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
-    --gradient-brand: linear-gradient(135deg, hsl(var(--brand-blue)) 0%, hsl(var(--brand-orange)) 100%);
+    /* Improved gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-blue)), hsl(var(--brand-blue) / 0.8));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--brand-orange)), hsl(var(--brand-orange) / 0.8));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-blue)) 0%, hsl(var(--brand-orange)) 100%);
     
-    /* Refined shadows */
-    --shadow-soft: 0 2px 20px hsl(var(--foreground) / 0.08);
-    --shadow-medium: 0 8px 40px hsl(var(--foreground) / 0.12);
-    --shadow-strong: 0 16px 60px hsl(var(--foreground) / 0.16);
+    /* Enhanced shadows */
+    --shadow-brand: 0 10px 30px -10px hsl(var(--brand-blue) / 0.3);
+    --shadow-accent: 0 10px 30px -10px hsl(var(--brand-orange) / 0.3);
+    --shadow-elegant: 0 4px 20px -4px hsl(var(--foreground) / 0.1);
+    --shadow-card: 0 8px 32px -8px hsl(var(--foreground) / 0.1);
+    
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 

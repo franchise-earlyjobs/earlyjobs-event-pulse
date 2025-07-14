@@ -55,7 +55,7 @@ export default function FranchiseLaunches() {
 
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {launches.map((launch) => (
-            <Card key={launch.id} className="overflow-hidden hover:shadow-elegant transition-all duration-300 group">
+            <Card key={launch.id} className="overflow-hidden hover:shadow-card transition-all duration-300 group border-0 shadow-elegant">
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={launch.image}

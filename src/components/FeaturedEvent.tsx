@@ -56,7 +56,7 @@ export default function FeaturedEvent() {
               <img
                 src={franchiseExpoHero}
                 alt="Franchise India Expo Lucknow"
-                className="w-full rounded-2xl shadow-elegant"
+                className="w-full rounded-2xl shadow-card hover:shadow-brand transition-all duration-500"
               />
             </div>
 

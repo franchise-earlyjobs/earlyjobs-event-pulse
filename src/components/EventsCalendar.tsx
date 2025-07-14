@@ -62,7 +62,7 @@ export default function EventsCalendar() {
         <div className="overflow-x-auto pb-4">
           <div className="flex space-x-6 min-w-max px-4">
             {events.map((event) => (
-              <Card key={event.id} className="min-w-80 hover:shadow-elegant transition-all duration-300 group">
+              <Card key={event.id} className="min-w-80 hover:shadow-card transition-all duration-300 group border-0 shadow-elegant">
                 <CardContent className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <Badge 

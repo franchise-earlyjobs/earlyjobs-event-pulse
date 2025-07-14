@@ -67,7 +67,7 @@ export default function FAQ() {
             </p>
           </div>
 
-          <Card className="shadow-elegant">
+          <Card className="shadow-card border-0">
             <CardContent className="p-8">
               <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq) => (

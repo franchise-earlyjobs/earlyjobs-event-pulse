@@ -49,7 +49,7 @@ export default function WeeklyWebinars() {
               <img
                 src={webinarHero}
                 alt="Weekly Webinar Series"
-                className="w-full rounded-2xl shadow-elegant"
+                className="w-full rounded-2xl shadow-card hover:shadow-accent transition-all duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl" />
               <div className="absolute bottom-6 left-6 text-white">
