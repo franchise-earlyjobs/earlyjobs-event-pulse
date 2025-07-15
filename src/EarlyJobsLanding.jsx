@@ -26,6 +26,7 @@ import {
   Shield,
   HelpCircle
 } from 'lucide-react';
+import './EarlyJobsLanding.css';
 
 // Import images (you'll need to add these to your project)
 import franchiseExpoHero from './assets/franchise-expo-hero.jpg';
@@ -34,19 +35,28 @@ import officeLaunchHero from './assets/office-launch-hero.jpg';
 
 // Button Component
 const Button = ({ children, className = '', variant = 'default', size = 'default', onClick, type = 'button', disabled = false, ...props }) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
-  
-  const variants = {
-    default: 'bg-primary text-white hover:bg-primary/90 focus:ring-primary',
-    outline: 'border border-input bg-transparent hover:bg-accent hover:text-accent-foreground focus:ring-primary',
-    secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:ring-secondary'
-  };
-  
-  const sizes = {
-    default: 'h-10 px-4 py-2 rounded-md',
-    sm: 'h-9 px-3 rounded-md text-sm',
-    lg: 'h-11 px-8 rounded-lg text-lg',
-    icon: 'h-10 w-10 rounded-md'
+  const getButtonClasses = () => {
+    let classes = 'btn';
+    
+    // Add variant class
+    if (variant === 'outline') {
+      classes += ' btn-outline';
+    } else if (variant === 'secondary') {
+      classes += ' btn-secondary';
+    } else {
+      classes += ' btn-default';
+    }
+    
+    // Add size class
+    if (size === 'sm') {
+      classes += ' btn-sm';
+    } else if (size === 'lg') {
+      classes += ' btn-lg';
+    } else if (size === 'icon') {
+      classes += ' btn-icon';
+    }
+    
+    return classes;
   };
   
   return (
@@ -54,7 +64,7 @@ const Button = ({ children, className = '', variant = 'default', size = 'default
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`${getButtonClasses()} ${className}`}
       {...props}
     >
       {children}
@@ -64,27 +74,35 @@ const Button = ({ children, className = '', variant = 'default', size = 'default
 
 // Card Components
 const Card = ({ children, className = '', ...props }) => (
-  <div className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className}`} {...props}>
+  <div className={`card ${className}`} {...props}>
     {children}
   </div>
 );
 
 const CardContent = ({ children, className = '', ...props }) => (
-  <div className={`p-6 ${className}`} {...props}>
+  <div className={`card-content ${className}`} {...props}>
     {children}
   </div>
 );
 
 // Badge Component
 const Badge = ({ children, className = '', variant = 'default', ...props }) => {
-  const variants = {
-    default: 'bg-primary text-primary-foreground',
-    secondary: 'bg-secondary text-secondary-foreground',
-    outline: 'border border-input bg-transparent'
+  const getBadgeClasses = () => {
+    let classes = 'badge';
+    
+    if (variant === 'secondary') {
+      classes += ' badge-secondary';
+    } else if (variant === 'outline') {
+      classes += ' badge-outline';
+    } else {
+      classes += ' badge-default';
+    }
+    
+    return classes;
   };
   
   return (
-    <div className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors ${variants[variant]} ${className}`} {...props}>
+    <div className={`${getBadgeClasses()} ${className}`} {...props}>
       {children}
     </div>
   );
@@ -93,14 +111,14 @@ const Badge = ({ children, className = '', variant = 'default', ...props }) => {
 // Input Component
 const Input = ({ className = '', ...props }) => (
   <input
-    className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+    className={`input ${className}`}
     {...props}
   />
 );
 
 // Label Component
 const Label = ({ children, className = '', ...props }) => (
-  <label className={`text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${className}`} {...props}>
+  <label className={`label ${className}`} {...props}>
     {children}
   </label>
 );
@@ -111,7 +129,7 @@ const Checkbox = ({ checked, onCheckedChange, className = '', ...props }) => (
     type="checkbox"
     checked={checked}
     onChange={(e) => onCheckedChange && onCheckedChange(e.target.checked)}
-    className={`h-4 w-4 rounded border border-primary text-primary focus:ring-2 focus:ring-primary ${className}`}
+    className={`checkbox ${className}`}
     {...props}
   />
 );
@@ -128,7 +146,7 @@ const Select = ({ children, onValueChange, ...props }) => {
   };
   
   return (
-    <div className="relative" {...props}>
+    <div style={{ position: 'relative' }} {...props}>
       {React.Children.map(children, child => 
         React.cloneElement(child, { 
           isOpen, 
@@ -145,20 +163,25 @@ const SelectTrigger = ({ children, isOpen, setIsOpen, selectedValue }) => (
   <button
     type="button"
     onClick={() => setIsOpen(!isOpen)}
-    className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+    className="select-trigger"
   >
     {selectedValue || children}
-    <ChevronLeft className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-90' : ''}`} />
+    <ChevronLeft style={{ 
+      height: '1rem', 
+      width: '1rem', 
+      transition: 'transform 0.3s ease',
+      transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)'
+    }} />
   </button>
 );
 
 const SelectValue = ({ placeholder }) => (
-  <span className="text-muted-foreground">{placeholder}</span>
+  <span style={{ color: '#9ca3af' }}>{placeholder}</span>
 );
 
 const SelectContent = ({ children, isOpen, handleSelect }) => (
   isOpen && (
-    <div className="absolute top-full z-50 w-full rounded-md border bg-popover text-popover-foreground shadow-md">
+    <div className="select-content">
       {React.Children.map(children, child => 
         React.cloneElement(child, { handleSelect })
       )}
@@ -169,7 +192,7 @@ const SelectContent = ({ children, isOpen, handleSelect }) => (
 const SelectItem = ({ children, value, handleSelect }) => (
   <div
     onClick={() => handleSelect(value)}
-    className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground"
+    className="select-item"
   >
     {children}
   </div>
@@ -222,16 +245,24 @@ const AccordionItem = ({ children, value, openItems, toggleItem, className = '' 
 const AccordionTrigger = ({ children, isOpen, toggleItem, value, className = '' }) => (
   <button
     onClick={() => toggleItem(value)}
-    className={`flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180 ${className}`}
+    className={`accordion-trigger ${className}`}
   >
     {children}
-    <ChevronLeft className={`h-4 w-4 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`} />
+    <ChevronLeft style={{ 
+      height: '1rem', 
+      width: '1rem', 
+      transition: 'transform 0.2s ease',
+      transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)'
+    }} />
   </button>
 );
 
 const AccordionContent = ({ children, isOpen, className = '' }) => (
-  <div className={`overflow-hidden text-sm transition-all ${isOpen ? 'animate-accordion-down' : 'animate-accordion-up'}`}>
-    <div className={`pb-4 pt-0 ${className}`}>
+  <div className={`accordion-content ${className}`} style={{ 
+    maxHeight: isOpen ? '1000px' : '0px',
+    opacity: isOpen ? 1 : 0
+  }}>
+    <div className="accordion-content-inner">
       {children}
     </div>
   </div>
@@ -239,7 +270,7 @@ const AccordionContent = ({ children, isOpen, className = '' }) => (
 
 // Separator Component
 const Separator = ({ className = '', ...props }) => (
-  <div className={`shrink-0 bg-border h-[1px] w-full ${className}`} {...props} />
+  <div className={`separator ${className}`} {...props} />
 );
 
 // Hero Section
@@ -281,80 +312,104 @@ const HeroSection = () => {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent">
+    <section className="hero-section">
       {/* Background Slider */}
-      <div className="absolute inset-0">
+      <div className="hero-background">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? "opacity-30" : "opacity-0"
-            }`}
+            className={`hero-slide ${index === currentSlide ? 'active' : 'inactive'}`}
           >
             <img
               src={slide.image}
               alt={slide.title}
-              className="w-full h-full object-cover"
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-accent/80" />
+        <div className="hero-overlay" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-poppins text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+      <div className="hero-content container">
+        <div style={{ maxWidth: '64rem', margin: '0 auto' }}>
+          <h1 className="hero-title font-poppins">
             Fueling Local Hiring.{" "}
-            <span className="text-accent">Powering New Businesses.</span>
+            <span style={{ color: '#f59e0b' }}>Powering New Businesses.</span>
           </h1>
           
-          <p className="font-inter text-xl md:text-2xl mb-8 text-white/90">
+          <p className="hero-subtitle font-inter">
             Discover What's Next with EarlyJobs.
           </p>
           
-          <p className="font-inter text-lg mb-12 text-white/80">
+          <p className="hero-description font-inter">
             Explore our upcoming events—from franchise launches to India's biggest entrepreneurship expos.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div className="hero-buttons">
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-white font-poppins font-semibold px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              style={{ 
+                backgroundColor: '#f59e0b',
+                color: 'white',
+                fontWeight: '600',
+                padding: '1rem 2rem',
+                fontSize: '1.125rem',
+                borderRadius: '0.75rem',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                transition: 'all 0.3s ease'
+              }}
             >
-              <Calendar className="mr-2 h-5 w-5" />
+              <Calendar style={{ marginRight: '0.5rem', height: '1.25rem', width: '1.25rem' }} />
               Register for Upcoming Webinar
             </Button>
             
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary font-poppins font-semibold px-8 py-4 text-lg rounded-xl transition-all duration-300"
+              style={{ 
+                border: '1px solid white',
+                color: 'white',
+                fontWeight: '600',
+                padding: '1rem 2rem',
+                fontSize: '1.125rem',
+                borderRadius: '0.75rem',
+                transition: 'all 0.3s ease'
+              }}
             >
-              <MapPin className="mr-2 h-5 w-5" />
+              <MapPin style={{ marginRight: '0.5rem', height: '1.25rem', width: '1.25rem' }} />
               Visit Us at Franchise India Lucknow
             </Button>
             
             <Button 
               size="lg" 
               variant="secondary" 
-              className="bg-white/20 text-white hover:bg-white/30 border-white/30 font-poppins font-semibold px-8 py-4 text-lg rounded-xl backdrop-blur-sm transition-all duration-300"
+              style={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                color: 'white',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                fontWeight: '600',
+                padding: '1rem 2rem',
+                fontSize: '1.125rem',
+                borderRadius: '0.75rem',
+                backdropFilter: 'blur(8px)',
+                transition: 'all 0.3s ease'
+              }}
             >
-              <Users className="mr-2 h-5 w-5" />
+              <Users style={{ marginRight: '0.5rem', height: '1.25rem', width: '1.25rem' }} />
               Notify Me About Local Launches
             </Button>
           </div>
 
           {/* Slide Info */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-md mx-auto">
-            <h3 className="font-poppins text-2xl font-semibold mb-2">
+          <div className="hero-info-card">
+            <h3 className="font-poppins" style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.5rem' }}>
               {slides[currentSlide].title}
             </h3>
-            <p className="font-inter text-lg text-accent mb-1">
+            <p className="font-inter" style={{ fontSize: '1.125rem', color: '#f59e0b', marginBottom: '0.25rem' }}>
               {slides[currentSlide].subtitle}
             </p>
-            <p className="font-inter text-white/80">
+            <p className="font-inter" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
               {slides[currentSlide].description}
             </p>
           </div>
@@ -363,27 +418,25 @@ const HeroSection = () => {
         {/* Navigation */}
         <button
           onClick={prevSlide}
-          className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 rounded-full flex items-center justify-center transition-all duration-300"
+          className="hero-nav-btn prev"
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft style={{ height: '1.5rem', width: '1.5rem' }} />
         </button>
         
         <button
           onClick={nextSlide}
-          className="absolute right-6 top-1/2 transform -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 rounded-full flex items-center justify-center transition-all duration-300"
+          className="hero-nav-btn next"
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight style={{ height: '1.5rem', width: '1.5rem' }} />
         </button>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <div className="hero-indicators">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentSlide ? "bg-accent" : "bg-white/40"
-              }`}
+              className={`hero-indicator ${index === currentSlide ? 'active' : 'inactive'}`}
             />
           ))}
         </div>
