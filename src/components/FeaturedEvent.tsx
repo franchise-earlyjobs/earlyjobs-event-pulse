@@ -128,7 +128,7 @@ export default function FeaturedEvent() {
               <div className="pt-4">
                 <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-poppins font-semibold px-8 py-4 text-lg shadow-accent">
                   <Calendar className="mr-2 h-5 w-5" />
-                  Attend Franchise Expo
+                  Attend  Franchise Expo
                 </Button>
               </div>
             </div>
