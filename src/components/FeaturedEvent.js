@@ -1,8 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Users, CheckCircle, Star, Trophy, Target } from "lucide-react";
-import franchiseExpoHero from "@/assets/franchise-expo-hero.jpg";
+import franchiseExpoHero from "../assets/franchise-expo-hero.jpg";
 
 const features = [
   {
@@ -25,62 +22,61 @@ const features = [
 
 export default function FeaturedEvent() {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+    <section className="featured-section">
+      <div className="container">
+        <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
           <div className="text-center mb-12">
-            <Badge className="bg-accent text-white mb-4 text-lg px-4 py-2">
+            <span className="badge badge-accent mb-4" style={{ fontSize: '1.125rem', padding: '0.5rem 1rem' }}>
               Featured Event
-            </Badge>
-            <h2 className="font-poppins text-4xl md:text-5xl font-bold text-foreground mb-4">
+            </span>
+            <h2 className="font-poppins mb-4" style={{ fontSize: '2.25rem', fontWeight: 'bold', color: '#333' }}>
               Franchise India Pavilion, Lucknow
             </h2>
-            <div className="flex flex-wrap justify-center items-center gap-4 text-muted-foreground mb-6">
+            <div className="flex flex-wrap justify-center items-center gap-4 text-muted mb-6" style={{ flexWrap: 'wrap', gap: '1rem' }}>
               <span className="flex items-center font-inter">
-                <CheckCircle className="h-4 w-4 mr-1 text-green-500" />
+                <CheckCircle className="h-4 w-4 mr-1" style={{ color: '#10b981' }} />
                 Government-Backed
               </span>
               <span className="flex items-center font-inter">
-                <CheckCircle className="h-4 w-4 mr-1 text-green-500" />
+                <CheckCircle className="h-4 w-4 mr-1" style={{ color: '#10b981' }} />
                 Tier 2/3 Focused
               </span>
               <span className="flex items-center font-inter">
-                <CheckCircle className="h-4 w-4 mr-1 text-green-500" />
+                <CheckCircle className="h-4 w-4 mr-1" style={{ color: '#10b981' }} />
                 Franchise India x GoUP
               </span>
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
             <div>
-             <div style={{marginBottom: '1.5rem'}}>
-                <h3 className="font-poppins text-2xl font-semibold text-foreground mb-4">
+              <div style={{ marginBottom: '1.5rem' }}>
+                <h3 className="font-poppins mb-4" style={{ fontSize: '1.5rem', fontWeight: '600', color: '#333', marginBottom: '1rem' }}>
                   India's Most Action-Driven Entrepreneurship Event
                 </h3>
-                <p className="font-inter text-lg text-muted-foreground leading-relaxed">
+                <p className="font-inter" style={{ fontSize: '1.125rem', color: '#6b7280', lineHeight: '1.6' }}>
                   EarlyJobs is proud to showcase at this premier entrepreneurship event hosted by the 
                   Government of Uttar Pradesh. Join us to explore franchise opportunities and connect 
                   with industry leaders shaping the future of local hiring.
                 </p>
               </div>
-            <div>
-              <img
-                src={franchiseExpoHero}
-                alt="Franchise India Expo Lucknow"
-                className="w-full rounded-2xl shadow-card hover:shadow-brand transition-all duration-500"
-              />
-            </div>
+              <div>
+                <img
+                  src={franchiseExpoHero}
+                  alt="Franchise India Expo Lucknow"
+                  className="w-full"
+                  style={{ borderRadius: '1rem', boxShadow: '0 8px 32px -8px rgba(0, 0, 0, 0.1)' }}
+                />
+              </div>
             </div>
 
             <div className="space-y-8">
-             
-
-              <Card className="border-2 border-primary/20 bg-primary/5">
-                <CardContent className="p-6">
-                  <h4 className="font-poppins text-xl font-semibold text-foreground mb-4">
+              <div className="card" style={{ border: '2px solid rgba(30, 64, 175, 0.2)', backgroundColor: 'rgba(30, 64, 175, 0.05)' }}>
+                <div className="card-content">
+                  <h4 className="font-poppins mb-4" style={{ fontSize: '1.25rem', fontWeight: '600', color: '#333', marginBottom: '1rem' }}>
                     Key Event Details
                   </h4>
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <div className="flex items-center">
                       <Calendar className="h-5 w-5 mr-3 text-primary" />
                       <span className="font-inter">
@@ -106,30 +102,40 @@ export default function FeaturedEvent() {
                       </span>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
 
               <div>
-                <h4 className="font-poppins text-xl font-semibold text-foreground mb-4">
+                <h4 className="font-poppins mb-4" style={{ fontSize: '1.25rem', fontWeight: '600', color: '#333', marginBottom: '1rem' }}>
                   Why Visit Our Booth?
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   {features.map((feature, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                    <div key={index} className="flex items-start space-x-3" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                      <div style={{ 
+                        flexShrink: 0, 
+                        width: '2rem', 
+                        height: '2rem', 
+                        backgroundColor: 'rgba(220, 38, 38, 0.1)', 
+                        borderRadius: '50%', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center', 
+                        color: '#dc2626' 
+                      }}>
                         {feature.icon}
                       </div>
-                      <span className="font-inter text-foreground">{feature.text}</span>
+                      <span className="font-inter" style={{ color: '#333' }}>{feature.text}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-4">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-poppins font-semibold px-8 py-4 text-lg shadow-accent">
+              <div style={{ paddingTop: '1rem' }}>
+                <button className="btn btn-accent btn-lg font-poppins" style={{ boxShadow: '0 10px 30px -10px rgba(220, 38, 38, 0.3)' }}>
                   <Calendar className="mr-2 h-5 w-5" />
-                  Attend  Franchise Expo
-                </Button>
+                  Attend Franchise Expo
+                </button>
               </div>
             </div>
           </div>
