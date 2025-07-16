@@ -5,7 +5,6 @@ import FranchiseLaunches from "@/components/FranchiseLaunches";
 import WeeklyWebinars from "@/components/WeeklyWebinars";
 import RegistrationForm from "@/components/RegistrationForm";
 import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -17,7 +16,6 @@ const Index = () => {
       <WeeklyWebinars />
       <RegistrationForm />
       <FAQ />
-      <Footer />
     </div>
   );
 };

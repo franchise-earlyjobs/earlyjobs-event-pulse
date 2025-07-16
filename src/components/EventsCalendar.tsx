@@ -6,31 +6,31 @@ import { Calendar, MapPin, Clock, Users, ExternalLink } from "lucide-react";
 const events = [
   {
     id: 1,
-    date: "July 20",
+    date: "Coming Soon",
     eventType: "Franchise Webinar",
     location: "Online (Zoom)",
-    time: "11:00 AM IST",
+    time: "Coming Soon",
     status: "open",
-    attendees: "250+ registered",
-    ctaText: "Register Now"
+    attendees: "Invite Only",
+    ctaText: "Coming Soon"
   },
   {
     id: 2,
-    date: "July 30-31",
+    date: "Coming Soon",
     eventType: "Franchise India Expo",
     location: "Lucknow",
-    time: "9:00 AM - 6:00 PM",
+    time: "Coming Soon",
     status: "featured",
-    attendees: "5000+ expected",
-    ctaText: "See Details"
+    attendees: "Invite Only",
+    ctaText: "Coming Soon"
   },
   {
     id: 3,
     date: "Coming Soon",
     eventType: "Launch Ceremony",
     location: "Faridabad",
-    time: "TBA",
-    status: "coming-soon",
+    time: "Coming Soon",
+    status: "Coming Soon",
     attendees: "Invite Only",
     ctaText: "Notify Me"
   },
@@ -39,8 +39,8 @@ const events = [
     date: "Coming Soon",
     eventType: "Launch Ceremony",
     location: "Hyderabad",
-    time: "TBA",
-    status: "coming-soon",
+    time: "Coming Soon",
+    status: "Coming Soon",
     attendees: "Invite Only",
     ctaText: "Notify Me"
   }
@@ -59,7 +59,7 @@ export default function EventsCalendar() {
           </p>
         </div>
 
-        <div className="overflow-x-auto pb-4">
+        <div className="overflow-x-auto pb-4" style={{ scrollbarWidth: "none" }}>
           <div className="flex space-x-6 min-w-max px-4">
             {events.map((event) => (
               <Card key={event.id} className="min-w-80 hover:shadow-card transition-all duration-300 group border-0 shadow-elegant">

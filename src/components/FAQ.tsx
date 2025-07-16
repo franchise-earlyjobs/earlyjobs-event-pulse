@@ -56,8 +56,8 @@ export default function FAQ() {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <HelpCircle className="h-8 w-8 text-primary" />
+            <div className="w-16 h-16 bg-[#f99d34]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <HelpCircle className="h-8 w-8 text-[#f99d34]" />
             </div>
             <h2 className="font-poppins text-4xl font-bold text-foreground mb-4">
               Frequently Asked Questions
@@ -97,10 +97,10 @@ export default function FAQ() {
               </a>
               <span className="hidden sm:inline text-muted-foreground">•</span>
               <a 
-                href="tel:+919876543210" 
+                href="tel:+919611329404" 
                 className="font-poppins text-primary hover:text-primary/80 font-semibold"
               >
-                +91 98765 43210
+                +91 9611 329404
               </a>
             </div>
           </div>

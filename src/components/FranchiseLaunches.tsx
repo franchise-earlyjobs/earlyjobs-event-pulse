@@ -17,7 +17,7 @@ const launches = [
   {
     id: 2,
     city: "Hyderabad",
-    status: "Coming Soon", 
+    status: "20th July 2025", 
     description: "Tech hub expansion with focus on IT and startup ecosystem",
     features: ["Tech-focused hiring", "Startup partnerships", "Innovation center"],
     image: officeLaunchHero
@@ -82,6 +82,20 @@ export default function FranchiseLaunches() {
                 <p className="font-inter text-muted-foreground mb-6">
                   {launch.description}
                 </p>
+                {
+                  launch.status!=="Coming Soon" && (
+                    
+                  <div className="flex items-center mb-4">
+                    <Calendar className="mr-2 h-4 w-4" />
+
+                    <p className="font-inter text-sm text-muted-foreground">
+                      {
+                     launch.status 
+                    }
+                    </p>
+                  </div>
+                  )
+                }
 
                 <div className="space-y-3 mb-6">
                   <h4 className="font-poppins font-semibold text-foreground">Key Features:</h4>
@@ -95,15 +109,20 @@ export default function FranchiseLaunches() {
                 </div>
 
                 <div className="space-y-3">
-                  <Button variant="outline" className="w-full font-poppins font-semibold">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Join Our Opening
+                  <a href={launch.status==="Coming Soon" ? "#" : `https://lu.ma/08xagkvt`}>
+
+                  <Button variant="outline" className="w-full font-poppins font-semibold" style={
+  launch.status !== "Coming Soon"
+    ? { backgroundColor: "#F99E35", color: "white" }
+    : undefined
+}
+>
+                    {
+                    launch.status==="Coming Soon" ? "Coming Soon" : "Join Our Opening"
+                    }
+                    
                   </Button>
-                  <div className="text-center">
-                    <p className="font-inter text-sm text-muted-foreground">
-                      Date to be announced
-                    </p>
-                  </div>
+                  </ a>
                 </div>
               </CardContent>
             </Card>
@@ -126,7 +145,7 @@ export default function FranchiseLaunches() {
                 placeholder="Enter your email"
                 className="flex-1"
               />
-              <Button className="bg-primary hover:bg-primary/90 font-poppins font-semibold">
+              <Button className="bg-[#F99E35] hover:bg-[#F99E35]/80 font-poppins font-semibold">
                 <Mail className="mr-2 h-4 w-4" />
                 Notify Me
               </Button>
@@ -134,37 +153,8 @@ export default function FranchiseLaunches() {
           </CardContent>
         </Card>
 
-        {/* Testimonials */}
-        <div className="text-center mb-8">
-          <h3 className="font-poppins text-3xl font-semibold text-foreground mb-4">
-            What Our Partners Say
-          </h3>
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-l-4 border-accent">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-accent fill-current" />
-                  ))}
-                </div>
-                <blockquote className="font-inter text-muted-foreground mb-4 italic">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div>
-                  <p className="font-poppins font-semibold text-foreground">
-                    {testimonial.name}
-                  </p>
-                  <p className="font-inter text-sm text-muted-foreground">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        
       </div>
     </section>
   );
