@@ -53,15 +53,7 @@ export default function FeaturedEvent() {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img
-                src={franchiseExpoHero}
-                alt="Franchise India Expo Lucknow"
-                className="w-full rounded-2xl shadow-card hover:shadow-brand transition-all duration-500"
-              />
-            </div>
-
-            <div className="space-y-8">
-              <div>
+             <div style={{marginBottom: '1.5rem'}}>
                 <h3 className="font-poppins text-2xl font-semibold text-foreground mb-4">
                   India's Most Action-Driven Entrepreneurship Event
                 </h3>
@@ -71,6 +63,17 @@ export default function FeaturedEvent() {
                   with industry leaders shaping the future of local hiring.
                 </p>
               </div>
+            <div>
+              <img
+                src={franchiseExpoHero}
+                alt="Franchise India Expo Lucknow"
+                className="w-full rounded-2xl shadow-card hover:shadow-brand transition-all duration-500"
+              />
+            </div>
+            </div>
+
+            <div className="space-y-8">
+             
 
               <Card className="border-2 border-primary/20 bg-primary/5">
                 <CardContent className="p-6">
@@ -125,7 +128,7 @@ export default function FeaturedEvent() {
               <div className="pt-4">
                 <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-poppins font-semibold px-8 py-4 text-lg shadow-accent">
                   <Calendar className="mr-2 h-5 w-5" />
-                  Attend Franchise Expo – Reserve Your Spot
+                  Attend  Franchise Expo
                 </Button>
               </div>
             </div>

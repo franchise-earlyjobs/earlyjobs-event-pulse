@@ -89,15 +89,7 @@ export default function HeroSection() {
               Register for Upcoming Webinar
             </Button>
             
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary font-poppins font-semibold px-8 py-4 text-lg rounded-xl transition-all duration-300"
-            >
-              <MapPin className="mr-2 h-5 w-5" />
-              Visit Us at Franchise India Lucknow
-            </Button>
-            
+          
             <Button 
               size="lg" 
               variant="secondary" 
@@ -123,22 +115,10 @@ export default function HeroSection() {
         </div>
 
         {/* Navigation */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 rounded-full flex items-center justify-center transition-all duration-300"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-        
-        <button
-          onClick={nextSlide}
-          className="absolute right-6 top-1/2 transform -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 rounded-full flex items-center justify-center transition-all duration-300"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
+    
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <div className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 flex space-x-2">
           {slides.map((_, index) => (
             <button
               key={index}

@@ -221,7 +221,7 @@ export default function RegistrationForm() {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-poppins font-semibold text-lg py-4"
+                  className="w-full bg-[#F99D34] hover:bg-[#F99D34]/80 text-white font-poppins font-semibold text-lg py-4"
                 >
                   <Bell className="mr-2 h-5 w-5" />
                   Notify Me About Events

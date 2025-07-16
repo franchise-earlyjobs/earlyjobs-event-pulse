@@ -32,7 +32,7 @@ export default function WeeklyWebinars() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <Badge className="bg-primary text-white mb-4 text-lg px-4 py-2">
+            <Badge className="bg-[#FFC107] hover:bg-[#FFC107]/80 text-white mb-4 text-lg px-4 py-2">
               Weekly Series
             </Badge>
             <h2 className="font-poppins text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -96,7 +96,7 @@ export default function WeeklyWebinars() {
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center">
                       <Calendar className="h-5 w-5 mr-3 text-accent" />
-                      <span className="font-inter">This Saturday</span>
+                      <span className="font-inter">Date to be announced</span>
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-5 w-5 mr-3 text-accent" />
@@ -145,7 +145,7 @@ export default function WeeklyWebinars() {
               {upcomingSessions.map((session, index) => (
                 <Card key={index} className="hover:shadow-elegant transition-all duration-300">
                   <CardContent className="p-6 text-center">
-                    <Badge className="mb-4 bg-primary text-white">
+                    <Badge className="mb-4 bg-[#F99D34] hover:bg-[#F99D34]/90 text-white">
                       {session.date}
                     </Badge>
                     <h4 className="font-poppins text-lg font-semibold text-foreground mb-3">
